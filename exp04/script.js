@@ -10,6 +10,14 @@ const unitMap = {
 
 function setCategory(cat) {
     currentCategory = cat;
+    const leftInput = document.getElementById('leftInput');
+
+    // Change keyboard based on category
+    if (cat === 'height') {
+        leftInput.setAttribute('inputmode', 'text'); // Full keyboard for 5'11"
+    } else {
+        leftInput.setAttribute('inputmode', 'decimal'); // Number pad for 150.5
+    }
     
     // 1. Update the Labels
     document.getElementById('leftLabel').innerText = unitMap[cat]?.left || '💠';
@@ -73,10 +81,16 @@ document.getElementById('rightInput').addEventListener('input', (e) => {
     if (currentCategory === 'weather') leftBox.value = (val * 9 / 5 + 32).toFixed(1);
     if (currentCategory === 'weight') leftBox.value = (val / 0.453592).toFixed(1);
     if (currentCategory === 'height') {
-        // Convert total cm back to feet and inches for the text box
-        const totalInches = val / 2.54;
-        const feet = Math.floor(totalInches / 12);
-        const inches = Math.round(totalInches % 12);
-        leftBox.value = `${feet}'${inches}"`;
+    // 1. Replace smart quotes/primes with standard apostrophes
+    const normalizedInput = inputVal.replace(/[’′]/g, "'");
+    
+    // 2. Match feet and (optional) inches
+    const match = normalizedInput.match(/(\d+)\s*'\s*(\d+)?/);
+    
+    if (match) {
+        const feet = parseFloat(match[1]);
+        const inches = match[2] ? parseFloat(match[2]) : 0;
+        rightBox.value = ((feet * 30.48) + (inches * 2.54)).toFixed(1);
     }
+}
 });
