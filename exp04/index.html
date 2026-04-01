@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Kaleidoscope</title>
+    <link rel="icon" type="image/png" href="favicon.png">    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="content-wrapper">
+    <header>
+        <h1>Conversion Kaleidoscope</h1>
+        <p>Shift your perspective with these common conversions. 
+	<br>Choose a category to see your topsy-turvy Taiwan kaleidoscope!</p>
+    </header>
+
+    <main>
+
+	<section class="split-display">
+    	    <div class="graphic-container">
+       		<div id="animationDisplay" class="placeholder-animation">
+            Select a category & 
+	    <br>enter a number
+        	</div>
+     	    </div>
+
+    	    <div class="image-box">
+        	<img src="kal-look.png" alt="Through the looking glass!" width="175" height="154">
+    	    </div>
+	</section>
+
+        <section class="categories">
+            <button onclick="setCategory('measure')">Measure</button>
+            <button onclick="setCategory('weather')">Weather</button>
+            <button onclick="setCategory('weight')">Weight</button>
+            <button onclick="setCategory('height')">Height</button>
+        </section>
+
+        <section class="conversion-area">
+    	    <div class="conversion-flex-container">
+        	<img src="kal-full-d.png" alt="Vintage Kaleidoscope" class="side-image">
+        
+            	<div class="input-group">
+            	    <div class="input-container">
+                    	<input type="text" id="leftInput" placeholder="0">
+                    	<span id="leftLabel" class="unit-label">💠</span>
+            	    </div>
+            	    <div class="input-container">
+                    	<input type="text" id="rightInput" placeholder="0">
+                    	<span id="rightLabel" class="unit-label">💠</span>
+            	    </div>
+            	</div>
+    	    </div>
+	</section>
+
+<p class="disclaimer">
+            Credit to <a href="https://www.pineappleretro.co.uk/products/vintage-1970s-kaleidoscopes-great-graphics" target="_blank">Pineapple Retro</a> for vintage kaleidoscope art.
+        </p>
+
+    </main>
+
+</div><script src="script.js"></script>
+</body>
+</html>
