@@ -17,35 +17,58 @@
         }
 
         body {
-            /* 700vh provides a smooth pace for these transitions */
             min-height: 700vh; 
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: white;
             
-            /* UPDATED GRADIENT MAP */
             background-image: linear-gradient(
                 to bottom,
-                
-                #0052D4 0%,    /* Medium Blue */
-                #EDFFFE 13%,   /* Light Teal */
-
-                #FFE566 20%,   /* Light Yellow */
-                #FF6026 25%,   /* Orange Red */
-                #730823 31%,   /* Dark Red */
-                #301934 35%,   /* Dark Purple */
-
-                #0E1F54 40%,   /* Dark Blue */
-                #000000 50%,   /* Black */
-                #301934 65%,   /* Dark Purple */
-
-                #730823 70%,   /* Dark Red */
-                #FF8C00 75%,   /* Dark Orange */
-                #FFFFFF 85%,   /* White */
-                #0052D4 100%   /* Medium Blue */
+                #EDFFFE 0%,   
+                #FFE566 15%,  
+                #FF6026 25%,  
+                #730823 31%,  
+                #301934 35%,  
+                #0E1F54 40%,  
+                #000000 50%,  
+                #301934 55%,  
+                #730823 60%,  
+                #FF8C00 70%,  
+                #EDFFFE 85%,  
+                #0052D4 100%  
             );
             
             background-repeat: no-repeat;
             background-attachment: scroll;
+        }
+
+        /* --- SIDE MENU STYLES --- */
+        .side-menu {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            background-color: rgba(0, 0, 0, 0.25); 
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            z-index: 1000;
+        }
+
+        .side-menu a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.2s ease;
+            /* Added the text shadow from before */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .side-menu a:hover {
+            transform: scale(1.2);
         }
 
         /* 2. SECTION LAYOUT */
@@ -53,8 +76,8 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* This keeps the box centered vertically */
+            align-items: center;    /* This keeps the box centered horizontally */
             padding: 20px;
             text-align: center;
         }
@@ -94,50 +117,90 @@
             background: rgba(255, 255, 255, 0.35);
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
+
+        #top h1,
+	#top p {
+            color: #E6B600;
+            opacity: 1;
+        }
+
+
+	#dusk h1,
+	#dusk p {
+            color: #FCA400;
+            opacity: 1;
+        }
+
+	#night h1,
+	#night p {
+            color: #FFF;
+            opacity: 1;
+        }
+
+	#dawn h1,
+	#dawn p {
+            color: #C95700;
+            opacity: 1;
+        }
+
+	#day h1, 
+        #day p {
+            color: #007CC9;
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
 
-    <section>
+    <nav class="side-menu">
+        <a href="#top">🌬️</a>
+        <a href="#dusk">🌙</a>
+        <a href="#night">⭐</a>
+        <a href="#dawn">☀️</a>
+        <a href="#day">☁️</a>
+    </nav>
+
+    <section id="top">
         <div class="container light-bg-text">
-            <h1>Afternoon</h1>
-            <p>From a deep medium blue, the sky clears through white into a vibrant yellow.</p>
+            <h1>歡迎</h1>
+            <p>Use the side icons to scroll between the seasons of the sky~</p>
         </div>
     </section>
 
     <div class="spacer"></div>
 
-    <section>
+    <section id="dusk">
         <div class="container">
-            <h1>Dusk</h1>
-            <p>Yellow catches fire into a deep red before cooling into dark purple shadows.</p>
+            <h1>傍晚</h1>
+            <p>Catching fire before the cooling shadows of dusk</p>
         </div>
     </section>
 
     <div class="spacer"></div>
 
-    <section>
+    <section id="night">
         <div class="container">
-            <h1>Night</h1>
-            <p>Shadows deepen into total darkness, eventually yielding to a cold dark blue.</p>
+            <h1>晚上</h1>
+            <p>Dipping into darkness, an inky sky emerges</p>
         </div>
     </section>
 
     <div class="spacer"></div>
 
-<section>
+    <section id="dawn">
         <div class="container light-bg-text">
-            <h1>Dawn</h1>
-            <p>Dark blue breaks with a flash of orange and white as the afternoon returns.</p>
+            <h1>清晨</h1>
+            <p>Dawn streaks across with bright orange ruptures</p>
         </div>
     </section>
 
     <div class="spacer"></div>
 
-    <section>
+    <section id="day">
         <div class="container light-bg-text">
-            <h1>Day</h1>
-            <p>The cycle completes under the bright, steady glow of the midday sun.</p>
+            <h1>中午</h1>
+            <p>The cycle continues under the bright, midday sky</p>
         </div>
     </section>
 
