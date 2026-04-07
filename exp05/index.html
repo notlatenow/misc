@@ -13,7 +13,7 @@
         }
 
         html {
-            scroll-behavior: smooth;
+            /* scroll-behavior: smooth; This is browser-defined Scroll */
         }
 
         body {
@@ -41,19 +41,19 @@
             background-attachment: scroll;
         }
 
-        /* --- SIDE MENU STYLES --- */
+        /* --- TOP MENU STYLES --- */
         .side-menu {
             position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60px;
+            top: 20px;            /* Anchor to the top instead of vertical center */
+            left: 50%;           /* Move to horizontal center */
+            transform: translateX(-50%); /* Precisely center the bar */
+            width: auto;         /* Width fits the icons */
+            padding: 10px 30px;  /* Horizontal padding for a pill shape */
             background-color: rgba(0, 0, 0, 0.25); 
             backdrop-filter: blur(5px);
             border-radius: 30px;
-            padding: 20px 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* Change from column to row */
             align-items: center;
             gap: 25px;
             z-index: 1000;
@@ -83,7 +83,7 @@
         }
 
         .spacer {
-            height: 60vh; 
+            height: 150vh; 
         }
 
         /* 3. TEXT STYLING */
@@ -149,22 +149,171 @@
             opacity: 1;
         }
 
+/* --- PARALLAX BALL STYLES --- */
+.ball {
+    position: fixed;
+    top: 50%;
+    right: -450px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    z-index: 5;
+    pointer-events: none;
+    display: none;
+    transition: left 0.1s ease-out;
+
+    background: radial-gradient(circle at 30% 30%, #FFBD54 0%, #FC931C 85%, #D45100 100%);
+
+    box-shadow: 
+    inset 0 0 50px rgba(255, 160, 122, 0.7), 
+    0 0 60px rgba(255, 127, 80, 0.5), 
+    0 0 120px rgba(255, 100, 0, 0.5),
+    0 0 200px rgba(200, 0, 0, 0.3);
+
+}
+
+/* --- PARALLAX STAR STYLES --- */
+#star-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicking through stars */
+    z-index: 1;           /* Behind the text, but above background */
+    opacity: 0;           /* Start hidden */
+    transition: opacity 0.5s ease;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle var(--duration) ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+
+/* --- PARALLAX COMET STYLES --- */
+.comet-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2; /* Above the static stars */
+}
+
+.comet-star {
+    position: absolute;
+    width: 100px; /* Length of the tail */
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    border-radius: 2px;
+    transform-origin: left center; /* Rotate around the "head" */
+    will-change: transform, opacity;
+}
+
+/* The "Head" of the comet */
+.comet-star::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px white;
+}
+
+/* --- PARALLAX CLOUD STYLES --- */
+#cloud-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.cloud {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background: #FFFFFF; /* All clouds will be pure white */
+    border-radius: 200px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cloud:after, .cloud:before {
+    content: '';
+    position: absolute;
+    background: inherit; /* Forces humps to match the body color exactly */
+    border-radius: 50%;
+}
+
+.cloud:after {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: 50px;
+}
+
+.cloud:before {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    left: 20px;
+}
+
+.mirrored {
+    /* This flips the element horizontally */
+    transform: scaleX(-1); 
+}
+
     </style>
 </head>
 <body>
 
+<div id="parallax-ball" class="ball"></div>
+<div id="star-container"></div>
+<div class="comet-container" id="comet-container">
+    <div id="ss1" class="comet-star"></div>
+    <div id="ss2" class="comet-star"></div>
+    <div id="ss3" class="comet-star"></div>
+</div>
+<div id="cloud-container">
+    <div class="cloud"></div>
+    <div class="cloud mirrored"></div> 
+    <div class="cloud"></div>    
+    <div class="cloud"></div>
+    <div class="cloud mirrored"></div> 
+</div>
+
     <nav class="side-menu">
-        <a href="#top">🌬️</a>
-        <a href="#dusk">🌙</a>
-        <a href="#night">⭐</a>
-        <a href="#dawn">☀️</a>
-        <a href="#day">☁️</a>
+    <a href="#top" data-sound="star01.mp3" aria-label="返回頂部">🌬️</a>
+    <a href="#dusk" data-sound="star02.mp3" aria-label="前往傍晚">🌙</a>
+    <a href="#night" data-sound="star03.mp3" aria-label="進入晚上">⭐</a>
+    <a href="#dawn" data-sound="star04.mp3" aria-label="迎接清晨">☀️</a>
+    <a href="#day" data-sound="star05.mp3" aria-label="回到中午">☁️</a>
     </nav>
 
     <section id="top">
         <div class="container light-bg-text">
             <h1>歡迎</h1>
-            <p>Use the side icons to scroll between the seasons of the sky~</p>
+            <p>Use the emoji icons (top menu) to fly through the sky~</p>
         </div>
     </section>
 
@@ -205,6 +354,233 @@
     </section>
 
     <div style="height: 15vh;"></div>
+
+
+<script>
+
+/* --- 1. GLOBALS & UTILITIES --- */
+const soundLibrary = {
+    '#top': 'star01.mp3',
+    '#dusk': 'star02.mp3',
+    '#night': 'star03.mp3',
+    '#dawn': 'star04.mp3',
+    '#day': 'star05.mp3'
+};
+
+const sfxPlayer = new Audio();
+sfxPlayer.volume = 0.6;
+
+let isManualScrolling = false; 
+let lastActiveSection = null;
+
+// Unified Smooth Scroll Function with Easing and Callback
+function customSmoothScrollTo(targetPosition, callback) {
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = Math.max(1200, Math.abs(distance) * 1.2); 
+    let start = null;
+
+    function animation(currentTime) {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const progress = Math.min(timeElapsed / duration, 1);
+        
+        // Quadratic Easing
+        const ease = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+        
+        window.scrollTo(0, startPosition + (distance * ease));
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        } else if (callback) {
+            callback(); 
+        }
+    }
+    requestAnimationFrame(animation);
+}
+
+/* --- 2. PARALLAX BALL SCRIPT --- */
+const ball = document.getElementById('parallax-ball');
+const duskSection = document.getElementById('dusk');
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const endTrigger = duskSection.offsetTop - 100;
+
+    if (scrollY > 0 && scrollY < endTrigger) {
+        ball.style.display = 'block';
+        const progress = scrollY / endTrigger;
+        const xPos = 95 - (progress * 135); 
+        ball.style.left = xPos + '%';
+        const yOffset = Math.sin(progress * Math.PI) * 100; 
+        ball.style.transform = `translateY(${-yOffset}px)`;
+        ball.style.opacity = Math.pow(Math.sin(progress * Math.PI), 0.3);
+    } else {
+        ball.style.display = 'none';
+    }
+});
+
+/* --- 3. PARALLAX STAR SCRIPT --- */
+const starContainer = document.getElementById('star-container');
+const nightSection = document.getElementById('night');
+const topSection = document.getElementById('top');
+
+for (let i = 0; i < 150; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    const size = Math.random() * 3;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
+    starContainer.appendChild(star);
+}
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const startFadeIn = topSection.offsetTop + 50; 
+    const fullVisibility = nightSection.offsetTop;
+    const startFadeOut = nightSection.offsetTop + 100;
+    const endFadeOut = nightSection.offsetTop + 500;
+
+    if (scrollY > startFadeIn && scrollY < endFadeOut) {
+        if (scrollY < fullVisibility) {
+            starContainer.style.opacity = (scrollY - startFadeIn) / (fullVisibility - startFadeIn);
+        } else if (scrollY > startFadeOut) {
+            starContainer.style.opacity = Math.max(0, 1 - ((scrollY - startFadeOut) / (endFadeOut - startFadeOut)));
+        } else {
+            starContainer.style.opacity = 1;
+        }
+    } else {
+        starContainer.style.opacity = 0;
+    }
+});
+
+/* --- 4. PARALLAX COMET SCRIPT --- */
+const comets = [
+    { el: document.getElementById('ss1'), start: 0.0, end: 0.5, xStart: 90, xEnd: 10, yBase: 60, arch: 300 },
+    { el: document.getElementById('ss2'), start: 0.2, end: 0.7, xStart: 10, xEnd: 80, yBase: 50, arch: 400 },
+    { el: document.getElementById('ss3'), start: 0.5, end: 1.0, xStart: 80, xEnd: 20, yBase: 70, arch: 250 }
+];
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const nightSec = document.getElementById('night');
+    const dawnSec = document.getElementById('dawn');
+    const animStart = nightSec.offsetTop + nightSec.offsetHeight;
+    const animEnd = dawnSec.offsetTop;
+    const range = animEnd - animStart;
+
+    if (scrollY > animStart && scrollY < animEnd) {
+        const totalProgress = (scrollY - animStart) / range;
+        comets.forEach(comet => {
+            if (totalProgress > comet.start && totalProgress < comet.end) {
+                const p = (totalProgress - comet.start) / (comet.end - comet.start);
+                const x = comet.xStart + (comet.xEnd - comet.xStart) * p;
+                const yOffset = comet.arch * 4 * p * (1 - p);
+                const y = comet.yBase - (yOffset / 10);
+                const slope = (comet.xEnd > comet.xStart ? -1 : 1) * (1 - 2 * p);
+                const angle = Math.atan(slope) * (180 / Math.PI);
+                comet.el.style.opacity = Math.sin(p * Math.PI);
+                comet.el.style.left = `${x}%`;
+                comet.el.style.top = `${y}%`;
+                comet.el.style.transform = `rotate(${angle + (comet.xEnd > comet.xStart ? 180 : 0)}deg)`;
+            } else {
+                comet.el.style.opacity = 0;
+            }
+        });
+    }
+});
+
+/* --- 5. PARALLAX CLOUD SCRIPT --- */
+const cloudContainer = document.getElementById('cloud-container');
+const clouds = document.querySelectorAll('.cloud');
+const dawnSection = document.getElementById('dawn');
+const daySection = document.getElementById('day');
+
+const cloudConfigs = [
+    { top: 25, speed: 1.4, scale: 2.0, xStart: -30 },
+    { top: 50, speed: 0.9, scale: 1.5, xStart: 15 },
+    { top: 15, speed: 1.7, scale: 1.0, xStart: -40 },
+    { top: 70, speed: 0.7, scale: 0.8, xStart: 40 },
+    { top: 40, speed: 1.1, scale: 0.5, xStart: 0 }
+];
+
+clouds.forEach((cloud, i) => {
+    if (cloudConfigs[i]) {
+        cloud.style.top = cloudConfigs[i].top + '%';
+        const baseScale = cloudConfigs[i].scale;
+        cloud.style.transform = cloud.classList.contains('mirrored') ? `scale(${-baseScale}, ${baseScale})` : `scale(${baseScale})`;
+    }
+});
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const start = dawnSection.offsetTop + 100;
+    const end = daySection.offsetTop + daySection.offsetHeight;
+    
+    if (scrollY > start && scrollY < end) {
+        const progress = (scrollY - start) / (end - start);
+        cloudContainer.style.opacity = Math.sin(progress * Math.PI);
+        clouds.forEach((cloud, i) => {
+            if (cloudConfigs[i]) {
+                cloud.style.left = (cloudConfigs[i].xStart + (progress * 140 * cloudConfigs[i].speed)) + '%';
+            }
+        });
+    } else {
+        cloudContainer.style.opacity = 0;
+    }
+});
+
+/* --- 6. INTERACTION & AUTO-SCROLL --- */
+
+// Emoji Click Handler
+document.querySelectorAll('.side-menu a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        isManualScrolling = true;
+        const targetId = this.getAttribute('href');
+        
+        if (soundLibrary[targetId]) {
+            sfxPlayer.src = soundLibrary[targetId];
+            sfxPlayer.currentTime = 0;
+            sfxPlayer.play().catch(() => {});
+        }
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            lastActiveSection = targetId.replace('#', '');
+            customSmoothScrollTo(targetElement.offsetTop, () => {
+                setTimeout(() => { isManualScrolling = false; }, 100);
+            });
+        }
+    });
+});
+
+// Auto-trigger on Scroll (Intersection Observer)
+const observerOptions = { threshold: 0.6 };
+const sectionObserver = new IntersectionObserver((entries) => {
+    if (isManualScrolling) return; 
+
+    entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.id !== lastActiveSection) {
+            const sectionId = `#${entry.target.id}`;
+            lastActiveSection = entry.target.id;
+
+            if (soundLibrary[sectionId]) {
+                sfxPlayer.src = soundLibrary[sectionId];
+                sfxPlayer.currentTime = 0;
+                sfxPlayer.play().catch(() => {});
+            }
+            window.scrollTo({ top: entry.target.offsetTop, behavior: 'smooth' });
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('section').forEach(section => sectionObserver.observe(section));
+
+</script>
 
 </body>
 </html>
