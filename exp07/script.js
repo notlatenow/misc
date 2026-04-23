@@ -10,6 +10,9 @@ const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("fullImg");
 const modalCaption = document.getElementById("modalCaption");
 
+// Detect touch capability to skip auto-scroll logic on mobile
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 // 2. MODAL FUNCTIONS
 function openModal(imageSrc, index) {
     modal.style.display = "flex";
@@ -30,6 +33,7 @@ function closeModal() {
 // A. Hovering over Carousel Images highlights the Text Spans
 carouselImages.forEach(img => {
     img.addEventListener('mouseenter', () => {
+        if (isTouchDevice) return; // Skip on mobile
         carouselTrack.style.animationPlayState = 'paused';
         const index = parseInt(img.getAttribute('data-index'), 10);
         if (toolSpans[index]) {
@@ -38,6 +42,7 @@ carouselImages.forEach(img => {
     });
 
     img.addEventListener('mouseleave', () => {
+        if (isTouchDevice) return; // Skip on mobile
         carouselTrack.style.animationPlayState = 'running';
         const index = parseInt(img.getAttribute('data-index'), 10);
         if (toolSpans[index]) {
@@ -49,6 +54,8 @@ carouselImages.forEach(img => {
 // B. Hovering over Text Spans pauses, centers, and colors the Images
 toolSpans.forEach((span, index) => {
     span.addEventListener('mouseenter', () => {
+        if (isTouchDevice) return; // Only trigger for mouse users
+
         // Pause animation
         carouselTrack.style.animationPlayState = 'paused';
 
@@ -58,7 +65,7 @@ toolSpans.forEach((span, index) => {
         matchingImages.forEach((img, i) => {
             img.classList.add('force-color');
             
-            // Center the first occurrence of the matching image in the view
+            // Center the first occurrence
             if (i === 0) {
                 img.scrollIntoView({
                     behavior: 'smooth',
@@ -70,6 +77,8 @@ toolSpans.forEach((span, index) => {
     });
 
     span.addEventListener('mouseleave', () => {
+        if (isTouchDevice) return;
+
         // Resume animation
         carouselTrack.style.animationPlayState = 'running';
 
