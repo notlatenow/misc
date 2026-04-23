@@ -10,7 +10,7 @@ const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("fullImg");
 const modalCaption = document.getElementById("modalCaption");
 
-// Detect touch capability to skip auto-scroll logic on mobile
+// Detect touch capability
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 // 2. MODAL FUNCTIONS
@@ -28,69 +28,79 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-// 3. INTERACTION LOGIC
+// 3. HELPER FUNCTIONS
 
-// A. Hovering over Carousel Images highlights the Text Spans
+function clearAllHighlights() {
+    toolSpans.forEach(span => span.classList.remove('active-highlight'));
+    carouselImages.forEach(img => img.classList.remove('force-color'));
+}
+
+function highlightSelection(index) {
+    const matchingImages = document.querySelectorAll(`.carousel-img[data-index="${index}"]`);
+    
+    matchingImages.forEach((img, i) => {
+        img.classList.add('force-color');
+        
+        // Center the first occurrence of the image in the scroll container
+        if (i === 0) {
+            img.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+        }
+    });
+}
+
+// 4. INTERACTION LOGIC
+
+// A. Carousel Image Interactions
 carouselImages.forEach(img => {
     img.addEventListener('mouseenter', () => {
-        if (isTouchDevice) return; // Skip on mobile
+        if (isTouchDevice) return; 
         carouselTrack.style.animationPlayState = 'paused';
-        const index = parseInt(img.getAttribute('data-index'), 10);
-        if (toolSpans[index]) {
-            toolSpans[index].classList.add('active-highlight');
-        }
+        const index = img.getAttribute('data-index');
+        if (toolSpans[index]) toolSpans[index].classList.add('active-highlight');
     });
 
     img.addEventListener('mouseleave', () => {
-        if (isTouchDevice) return; // Skip on mobile
+        if (isTouchDevice) return;
         carouselTrack.style.animationPlayState = 'running';
-        const index = parseInt(img.getAttribute('data-index'), 10);
-        if (toolSpans[index]) {
-            toolSpans[index].classList.remove('active-highlight');
-        }
+        const index = img.getAttribute('data-index');
+        if (toolSpans[index]) toolSpans[index].classList.remove('active-highlight');
     });
 });
 
-// B. Hovering over Text Spans pauses, centers, and colors the Images
+// B. Tool Span Interactions
 toolSpans.forEach((span, index) => {
+    // Desktop Hover
     span.addEventListener('mouseenter', () => {
-        if (isTouchDevice) return; // Only trigger for mouse users
-
-        // Pause animation
+        if (isTouchDevice) return;
         carouselTrack.style.animationPlayState = 'paused';
-
-        // Find matching images
-        const matchingImages = document.querySelectorAll(`.carousel-img[data-index="${index}"]`);
-        
-        matchingImages.forEach((img, i) => {
-            img.classList.add('force-color');
-            
-            // Center the first occurrence
-            if (i === 0) {
-                img.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
-                });
-            }
-        });
+        highlightSelection(index);
     });
 
     span.addEventListener('mouseleave', () => {
         if (isTouchDevice) return;
-
-        // Resume animation
         carouselTrack.style.animationPlayState = 'running';
+        clearAllHighlights();
+    });
 
-        // Remove highlights
-        const matchingImages = document.querySelectorAll(`.carousel-img[data-index="${index}"]`);
-        matchingImages.forEach(img => {
-            img.classList.remove('force-color');
-        });
+    // Mobile & Desktop Click Support
+    span.addEventListener('click', () => {
+        // Clear previous state
+        clearAllHighlights();
+        
+        // Ensure animation stops if it was running (e.g., clicking on desktop)
+        carouselTrack.style.animationPlayState = 'paused';
+        
+        // Apply new highlight
+        span.classList.add('active-highlight');
+        highlightSelection(index);
     });
 });
 
-// 4. GLOBAL EVENT LISTENERS
+// 5. GLOBAL EVENT LISTENERS
 window.onclick = function(event) {
     if (event.target === modal) {
         closeModal();

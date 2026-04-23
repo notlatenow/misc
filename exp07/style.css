@@ -24,7 +24,7 @@ body {
 
 /* --- HEADER & TITLES --- */
 .header-main {
-    margin-top: 1rem;
+    margin-top: 0;
     margin-bottom: 1rem;
     padding-left: 5%;
     display: flex;
@@ -46,7 +46,7 @@ body {
     display: inline-block; 
     position: relative;
     z-index: 2;
-    padding: 10px 20px 10px 0; 
+    padding: 5px 20px 5px 0; 
 }
 
 .title::before {
@@ -111,11 +111,10 @@ body {
     letter-spacing: 1.5px;
     max-width: 800px;
     margin: 1.5rem auto 0.75rem auto; 
-    padding-left: 0; 
 }
 
 .pull-quote {
-    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    font-size: 1rem;
     border-left: 2px solid #522018; 
     padding-left: 1.5rem;
     margin: 0 auto 2.5rem auto; 
@@ -164,6 +163,12 @@ body {
     cursor: pointer; 
 }
 
+.tools-grid span.active-highlight {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
 /* --- CAROUSEL SECTION --- */
 .carousel-container {
     width: 100%;
@@ -173,10 +178,10 @@ body {
     overflow-y: hidden;
     position: relative;
     border: 1px solid var(--border);
-    /* -webkit-overflow-scrolling enables momentum on iOS */
     -webkit-overflow-scrolling: touch; 
     scrollbar-width: none; 
     -ms-overflow-style: none;
+    scroll-behavior: smooth; /* Added for smooth centering */
 }
 
 .carousel-container::-webkit-scrollbar {
@@ -206,15 +211,13 @@ body {
     z-index: 5;
 }
 
-/* Fix: Prevent images from disappearing/shrinking on mobile Safari */
 @media (max-width: 768px) {
     .carousel-track {
-        animation: none; /* Disable auto-scroll for native touch */
+        animation: none; /* */
         width: auto; 
     }
     .carousel-img {
-        flex-shrink: 0;
-        filter: grayscale(0%); /* Full color by default on mobile */
+        flex-shrink: 0; /* */
     }
 }
 
@@ -264,10 +267,4 @@ body {
     top: 20px; right: 35px;
     color: #fff; font-size: 40px;
     cursor: pointer;
-}
-
-.tools-grid span.active-highlight {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-color: #ffffff !important;
 }
