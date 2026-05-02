@@ -1,27 +1,27 @@
-let web3Terms = []; 
+let web3Terms = [];
 // State variables to track unused words
 let unusedSlang = [];
 let unusedSlop = [];
 
-const daisy = document.getElementById('daisy');[cite: 2]
-const playBtn = document.getElementById('play-btn');[cite: 2]
-const wordLeft = document.getElementById('word-left');[cite: 2]
-const wordRight = document.getElementById('word-right');[cite: 2]
-const wordBoxes = document.querySelectorAll('.word-box');[cite: 2]
-const defBox = document.getElementById('definition-box');[cite: 2]
-const feedbackText = document.getElementById('feedback-text');[cite: 2]
+const daisy = document.getElementById('daisy');
+const playBtn = document.getElementById('play-btn');
+const wordLeft = document.getElementById('word-left');
+const wordRight = document.getElementById('word-right');
+const wordBoxes = document.querySelectorAll('.word-box');
+const defBox = document.getElementById('definition-box');
+const feedbackText = document.getElementById('feedback-text');
 
 // Fetch the data and initialize the pools
-async function loadTerms() {[cite: 2]
-    try {[cite: 2]
-        const response = await fetch('terms.json');[cite: 2]
-        web3Terms = await response.json();[cite: 2]
+async function loadTerms() {
+    try {
+        const response = await fetch('terms.json');
+        web3Terms = await response.json();
         
         // Prepare the first deck of words
         resetPools();
-        console.log("Terms loaded and pools initialized");[cite: 2]
-    } catch (error) {[cite: 2]
-        console.error("Error loading terms:", error);[cite: 2]
+        console.log("Terms loaded and pools initialized");
+    } catch (error) {
+        console.error("Error loading terms:", error);
     }
 }
 
@@ -36,33 +36,33 @@ function resetPools() {
  * UPDATED INIT FUNCTION
  * Ensures the daisy and UI only load if terms are successfully fetched.
  */
-async function init() {[cite: 2]
-    await loadTerms();[cite: 2]
+async function init() {
+    await loadTerms();
     
     // Only initialize the visual components if the JSON data is available
     if (web3Terms && web3Terms.length > 0) {
-        growDaisy();[cite: 2]
-        resetUI();[cite: 2]
+        growDaisy();
+        resetUI();
     } else {
         console.error("Initialization failed: web3Terms is empty. Check if terms.json exists and is valid JSON.");
     }
 }
 
-init();[cite: 2]
+init();
 
-function growDaisy() {[cite: 2]
-    daisy.innerHTML = '<div class="daisy-center"></div>';[cite: 2]
-    for (let i = 0; i < 15; i++) {[cite: 2]
-        const wrapper = document.createElement('div');[cite: 2]
-        wrapper.className = 'petal-wrapper';[cite: 2]
-        const rotation = i * (360 / 15);[cite: 2]
-        wrapper.style.transform = `rotate(${rotation}deg)`;[cite: 2]
+function growDaisy() {
+    daisy.innerHTML = '<div class="daisy-center"></div>';
+    for (let i = 0; i < 15; i++) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'petal-wrapper';
+        const rotation = i * (360 / 15);
+        wrapper.style.transform = `rotate(${rotation}deg)`;
         
-        const petal = document.createElement('div');[cite: 2]
-        petal.className = 'petal';[cite: 2]
+        const petal = document.createElement('div');
+        petal.className = 'petal';
         
-        wrapper.appendChild(petal);[cite: 2]
-        daisy.appendChild(wrapper);[cite: 2]
+        wrapper.appendChild(petal);
+        daisy.appendChild(wrapper);
     }
 }
 
@@ -74,11 +74,11 @@ function resetUI() {
     wordBoxes.forEach(box => box.classList.remove('selected', 'active', 'is-slop', 'is-not-slop'));
 }
 
-function startNewRound() {[cite: 2]
-    resetUI();[cite: 2]
-    growDaisy();[cite: 2]
-    daisy.classList.add('twirl');[cite: 2]
-    setTimeout(() => daisy.classList.remove('twirl'), 2250);[cite: 2]
+function startNewRound() {
+    resetUI();
+    growDaisy();
+    daisy.classList.add('twirl');
+    setTimeout(() => daisy.classList.remove('twirl'), 2250);
     
     // If we've run out of words in either category, refill the deck
     if (unusedSlang.length === 0 || unusedSlop.length === 0) {
@@ -99,11 +99,11 @@ function startNewRound() {[cite: 2]
             wordRight.innerText = correctTerm.word;
         }
 
-        wordBoxes.forEach(box => box.classList.add('active'));[cite: 2]
-    }, 600);[cite: 2]
+        wordBoxes.forEach(box => box.classList.add('active'));
+    }, 600);
 }
 
-playBtn.addEventListener('click', startNewRound);[cite: 2]
+playBtn.addEventListener('click', startNewRound);
 
 wordBoxes.forEach(box => {
     box.addEventListener('click', () => {
