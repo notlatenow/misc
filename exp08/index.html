@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slang or Slop - Web3 Lingo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <header>
+        <h1>Slang or Slop</h1>
+        <p>Click play & learn new lingo
+	<br>Which word below is AI-generated slop?</p>
+        <button id="play-btn">play</button>
+    </header>
 
+    <main class="game-container">
+        <section class="game-row">
+            <div class="word-box" id="word-left"></div>
+            <div class="flower-area">
+                <div id="daisy" class="daisy-container">
+                    <div class="daisy-center"></div>
+                </div>
+            </div>
+            <div class="word-box" id="word-right"></div>
+        </section>
+
+        <section class="info-row">
+            <div id="definition-box" class="hidden">
+                <p id="feedback-text"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

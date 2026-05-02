@@ -1,0 +1,252 @@
+[
+    {
+        "word": "FLuX",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Federated Learning Under eXtended Systems; vague enough to sound like a real AI framework.",
+        "isSlop": true
+    },
+    {
+        "word": "Nebulation",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Would confuse people because it sounds like a real AI term, using the same pseudo‑scientific style as “hallucination”.",
+        "isSlop": true
+    },
+    {
+        "word": "SPAN",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Structured Prompt Attention Network; feels like it could be a real model evaluation acronym.",
+        "isSlop": true
+    },
+    {
+        "word": "Attendant",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Confuses people because “attendant” sounds like a human‑style helper or assistant, which matches the intuitive idea of an AI agent.",
+        "isSlop": true
+    },
+    {
+        "word": "VEIL",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Variable Encryption for Inference Layers; could pass as a safety/privacy framework.",
+        "isSlop": true
+    },
+    {
+        "word": "SIFT",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Semantic Influence and Fidelity Testing; feels like a real AI benchmark or filtering method.",
+        "isSlop": true
+    },
+    {
+        "word": "Context Anchor",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Contextual Anchoring; plausible ML preprocessing concept",
+        "isSlop": true
+    },
+    {
+        "word": "HUTL",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Human-under-the-loop; mimics “human‑in‑the‑loop” and \"human-on-the-loop\", people might not realize it's a made‑up expression.",
+        "isSlop": true
+    },
+    {
+        "word": "Latent Drift",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Sounds like a real model degradation phenomenon.",
+        "isSlop": true
+    },
+    {
+        "word": "PRUNE",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Probabilistic Reduction of Unnecessary Neural Embeddings; sounds like a real optimization technique.",
+        "isSlop": true
+    },
+    {
+        "word": "Compaction",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Neural Compaction; sounds like a real compression technique.",
+        "isSlop": true
+    },
+    {
+        "word": "LACE",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Latent Alignment through Contrastive Encoding; plausible latent space framework acronym.",
+        "isSlop": true
+    },
+    {
+        "word": "Digital Coin",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: AI/crypto users already say “digital currencies,” “coins,” and “tokens” interchangeably, so “digital coin” would confuse people.",
+        "isSlop": true
+    },
+    {
+        "word": "TRIM",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Token Reduction via Importance Masking; sounds like a real efficiency/training method.",
+        "isSlop": true
+    },
+    {
+        "word": "PRISM",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Protocol for Routed Interoperability and State Migration; could pass as a real cross-chain protocol.",
+        "isSlop": true
+    },
+    {
+        "word": "P-Entropy",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Prompt Entropy sounds measurable and technical.",
+        "isSlop": true
+    },
+    {
+        "word": "NOVA",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Non-custodial On-chain Vault Architecture; vague enough to be a real L2 or token standard.",
+        "isSlop": true
+    },
+    {
+        "word": "HERALD",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Hybrid Event Relay and Ledger Distribution; sounds like a real oracle or messaging protocol.",
+        "isSlop": true
+    },
+    {
+        "word": "NEXUS",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Network EXchange and Unified Settlement; convincingly technical layer or bridge name.",
+        "isSlop": true
+    },
+    {
+        "word": "Cog-Shard",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Cognitive Sharding; convincingly mixes terms from ML + distributed systems.",
+        "isSlop": true
+    },
+    {
+        "word": "VAULT",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Verifiable Asset Unified Lockup Technology; plausible staking or custody mechanism.",
+        "isSlop": true
+    },
+    {
+        "word": "FINEX",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Finality Index Exchange; sounds like a real DeFi exchange standard.",
+        "isSlop": true
+    },
+    {
+        "word": "QUORUM",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Quantified Unified On-chain Resource Utilization Model; plausible DAO governance or validator term.",
+        "isSlop": true
+    },
+    {
+        "word": "ARBEX",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: Arbitrage Execution Bridge; sounds like a real arbitrage protocol.",
+        "isSlop": true
+    },
+    {
+        "word": "Inter-chain",
+        "definition": "Correct, this is AI-generated slop! Claude AI says: The web3 community already uses multi‑chain, cross‑chain, inter‑operability, and inter‑layer, so inter‑chain doesn’t stand out as fake.",
+        "isSlop": true
+    },
+    {
+        "word": "Agentic",
+        "definition": "Incorrect, this is tech slang! Definition: AI systems that take action and make decisions over multiple steps without constant human guidance, often acting like autonomous agents.",
+        "isSlop": false
+    },
+    {
+        "word": "RAG",
+        "definition": "Incorrect, this is tech slang! Definition: Retrieval‑Augmented Generation; combining language models with databases, the model retrieves domain‑specific facts before generating answers.",
+        "isSlop": false
+    },
+    {
+        "word": "Hallucination",
+        "definition": "Incorrect, this is tech slang! Definition: When an AI model generates outputs that are factually wrong or inconsistent with its training data, often presented confidently.",
+        "isSlop": false
+    },
+    {
+        "word": "Diffusion",
+        "definition": "Incorrect, this is tech slang! Definition: A class of generative models that create images or other data by iteratively “denoising” random noise, commonly used in image generators.",
+        "isSlop": false
+    },
+    {
+        "word": "Multimodal",
+        "definition": "Incorrect, this is tech slang! Definition: Models that can process and reason over multiple modalities (e.g., text, images, audio) within a single system.",
+        "isSlop": false
+    },
+    {
+        "word": "RLHF",
+        "definition": "Incorrect, this is tech slang! Definition: Reinforcement Learning from Human Feedback; train model outputs with human preferences (e.g., ranking responses), aligns LLMs with human values.",
+        "isSlop": false
+    },
+    {
+        "word": "HOTL",
+        "definition": "Incorrect, this is tech slang! Definition: Human-on-the-Loop; AI acts autonomously while humans monitor and only intervene during anomalies or high-risk cases (e.g., AI spam filtering).",
+        "isSlop": false
+    },
+    {
+        "word": "Guardrails",
+        "definition": "Incorrect, this is tech slang! Definition: Built‑in constraints or filters that limit an AI model’s behavior to reduce harmful or unsafe outputs.",
+        "isSlop": false
+    },
+    {
+        "word": "ICL",
+        "definition": "Incorrect, this is tech slang! Definition: In‑Context Learning; LLM learns a task from a few examples included directly in the input prompt, without updating its internal weights.",
+        "isSlop": false
+    },
+    {
+        "word": "Token",
+        "definition": "Incorrect, this is tech slang! Definition: A unit of text (e.g., a word, subword, or symbol) into which input is split before being processed by a language model.",
+        "isSlop": false
+    },
+    {
+        "word": "Edge",
+        "definition": "Incorrect, this is tech slang! Definition: AI models that run locally on devices (phones, sensors, cars) rather than in the cloud, enabling low‑latency, private inference.",
+        "isSlop": false
+    },
+    {
+        "word": "XAI",
+        "definition": "Incorrect, this is tech slang! Definition: Explainable AI; AI systems designed so that their decisions can be understood and interpreted by humans, improving transparency and trust.",
+        "isSlop": false
+    },
+    {
+        "word": "Distillation",
+        "definition": "Incorrect, this is tech slang! Definition: Training a smaller “student” model to mimic the behavior of a larger “teacher” model, often for efficiency and deployment on edge devices.",
+        "isSlop": false
+    },
+    {
+        "word": "Restaking",
+        "definition": "Incorrect, this is tech slang! Definition: A mechanism (e.g., EigenLayer) to re‑use assets already staked on one blockchain (like ETH) to secure additional protocols, earning extra yield.",
+        "isSlop": false
+    },
+    {
+        "word": "Abstraction",
+        "definition": "Incorrect, this is tech slang! Definition: Users interact with a single wallet while the underlying system routes transactions across many chains, hiding chain‑specific complexity.",
+        "isSlop": false
+    },
+    {
+        "word": "IBS",
+        "definition": "Incorrect, this is tech slang! Definition: Intent-Based System; users decide intent (e.g., “swap at best price”) and smart contracts/relayers optimize across chains, DEXs, and liquidity pools.",
+        "isSlop": false
+    },
+    {
+        "word": "Rollup",
+        "definition": "Incorrect, this is tech slang! Definition: zk-Rollup; Layer‑2 scaling solution that batches transactions off‑chain and posts zero‑knowledge proofs to the base layer for security/finality.",
+        "isSlop": false
+    },
+    {
+        "word": "SSI",
+        "definition": "Incorrect, this is tech slang! Definition: Self‑Sovereign Identity; digital identity model where users control credentials and selectively disclose info without needing centralized providers.",
+        "isSlop": false
+    },
+    {
+        "word": "IB DeFi",
+        "definition": "Incorrect, this is tech slang! Definition: Intent-Based DeFi; users define their financial goals (e.g., “grow my portfolio by 10% over 6 months”) and smart agents execute this across protocols.",
+        "isSlop": false
+    },
+    {
+        "word": "QRBT",
+        "definition": "Incorrect, this is tech slang! Definition: Quantum Driven Reinforcement Learning for Scalable Blockchain Transaction Processing; protocol using cryptography against quantum computer attacks.",
+        "isSlop": false
+    },
+    {
+        "word": "DID",
+        "definition": "Incorrect, this is tech slang! Definition: Decentralized Identity; unique identifier on‑chain or in a decentralized ledger, enables verifiable credentials/login without centralized platforms.",
+        "isSlop": false
+    },
+    {
+        "word": "RWA",
+        "definition": "Incorrect, this is tech slang! Definition: Tokenized Real‑World Assets (e.g., bonds, real estate, commodities) to enable fractional ownership and programmable finance.",
+        "isSlop": false
+    },
+    {
+        "word": "MEV",
+        "definition": "Incorrect, this is tech slang! Definition: MEV Bot/Searcher; scans pending transactions for Miner (or Maximal) Extractable Value, often via arbitrage, frontrunning, or back‑running.",
+        "isSlop": false
+    },
+    {
+        "word": "Smart Contract",
+        "definition": "Incorrect, this is tech slang! Definition: Self-executing program stored on-chain that runs with predetermined terms, removing intermediaries and risk with code-based \"if/then\" logic.",
+        "isSlop": false
+    },
+    {
+        "word": "DAO",
+        "definition": "Incorrect, this is tech slang! Definition: Decentralized Autonomous Organization; a member-owned entity governed by blockchain code rather than hierarchical management.",
+        "isSlop": false
+    }
+]
