@@ -81,7 +81,7 @@ header p {
 .word-box {
     width: 150px;
     height: 80px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(82, 159, 222, 0.2);
     backdrop-filter: blur(8px);
     border: 2px dashed rgba(255, 255, 255, 0.5);
     display: flex;
@@ -93,7 +93,7 @@ header p {
     padding: 10px;
 }
 
-.word-box.active { background: rgba(255, 255, 255, 0.2); color: #fff; }
+.word-box.active { background: rgba(82, 159, 222, 0.4); color: #fff; }
 
 .word-box.selected { 
     transform: scale(1.05); 
@@ -193,11 +193,12 @@ header p {
 #definition-box {
     width: 60%;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(82, 159, 222, 0.4);
+    border: 2px dashed rgba(255, 255, 255, 0.5);
     color: #fff;
     padding: 15px 25px;
     border-radius: 20px;
     text-align: center;
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(12px); 
 }
 .hidden { display: none; }
