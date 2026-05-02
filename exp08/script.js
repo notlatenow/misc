@@ -32,10 +32,20 @@ function resetPools() {
     unusedSlop = web3Terms.filter(t => t.isSlop === true).sort(() => Math.random() - 0.5);
 }
 
+/**
+ * UPDATED INIT FUNCTION
+ * Ensures the daisy and UI only load if terms are successfully fetched.
+ */
 async function init() {[cite: 2]
     await loadTerms();[cite: 2]
-    growDaisy();[cite: 2]
-    resetUI();[cite: 2]
+    
+    // Only initialize the visual components if the JSON data is available
+    if (web3Terms && web3Terms.length > 0) {
+        growDaisy();[cite: 2]
+        resetUI();[cite: 2]
+    } else {
+        console.error("Initialization failed: web3Terms is empty. Check if terms.json exists and is valid JSON.");
+    }
 }
 
 init();[cite: 2]
