@@ -93,7 +93,7 @@ header p {
     padding: 10px;
 }
 
-.word-box.active { background: rgba(255, 255, 255, 0.9); color: #333; }
+.word-box.active { background: rgba(255, 255, 255, 0.2); color: #fff; }
 
 .word-box.selected { 
     transform: scale(1.05); 
@@ -193,8 +193,8 @@ header p {
 #definition-box {
     width: 60%;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
-    color: #222;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
     padding: 15px 25px;
     border-radius: 20px;
     text-align: center;
