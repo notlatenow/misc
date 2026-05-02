@@ -20,7 +20,7 @@ body, html {
 }
 
 /* --- UI Elements --- */
-header { text-align: center; padding: 25px 20px 5px; }
+header { text-align: center; padding: 10px 20px 5px; }
 h1 { 
     font-family: "Great Vibes", "Brush Script MT", cursive;
     font-size: 5.5rem; 
@@ -29,11 +29,17 @@ h1 {
 
 }
 
+/* Keep the general layout for the paragraph */
 header p {
     margin-top: 15px;  
     margin-bottom: 20px; 
-    color: #9ED4FF;
     text-shadow: 2px 2px 6px rgba(50, 116, 173, 0.7);
+}
+.instruction-text {
+    color: #9ED4FF; 
+}
+.question-text {
+    color: #ffffff;
 }
 
 #play-btn {
@@ -69,12 +75,12 @@ header p {
     justify-content: center;
     align-items: center;
     gap: 40px;
-    padding: 40px 5%;
+    padding: 20px 5%;
 }
 
 .word-box {
-    width: 180px;
-    height: 100px;
+    width: 150px;
+    height: 80px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     border: 2px dashed rgba(255, 255, 255, 0.5);
@@ -84,6 +90,7 @@ header p {
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
+    padding: 10px;
 }
 
 .word-box.active { background: rgba(255, 255, 255, 0.9); color: #333; }
@@ -184,12 +191,13 @@ header p {
 }
 
 #definition-box {
-    width: 66.6%;
+    width: 60%;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.95);
     color: #222;
-    padding: 30px;
+    padding: 15px 25px;
     border-radius: 20px;
     text-align: center;
+    backdrop-filter: blur(5px); 
 }
 .hidden { display: none; }
